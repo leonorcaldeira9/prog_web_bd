@@ -1,0 +1,137 @@
+﻿@model IEnumerable<SchoolApp.Models.Person>
+
+@{
+    ViewData["Title"] = "Index";
+    var successMessage = TempData["SuccessMessage"] as string;
+    var errorMessage = TempData["ErrorMessage"] as string;
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>People</title>
+    <link rel="stylesheet" href="site.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="header">
+        <!-- Cabeçalho com o link para a página inicial dos estudantes -->
+        <a href="@Url.Action("Index", "People")" style="text-decoration: none; color: white;">
+            <h1 id="studentsText" class="header-students">People</h1>
+        </a>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(@successMessage))
+    {
+        <div class="alert alert-success">
+            <strong>Sucess!</strong> @successMessage
+            <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+        </div>
+    } else if (!string.IsNullOrWhiteSpace(@errorMessage))
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @errorMessage
+            <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Formulário da pesquisa e do botão -->
+    <form asp-controller="People" asp-action="Index" method="get" class='searchBar'>
+        <input type="text" id="searchInput" name="searchString" placeholder="Search..." value="@ViewBag.CurrentFilter">
+		<button type="submit" id="searchButton">Search <i class="fa fa-search"></i></button>
+        <a asp-action="Create" id="createNewButton" class="button">Add New <i class="fa fa-plus"></i></a> <!-- Link para a página de criar um novo estudante -->
+    </form>
+
+    <!-- Verifica se há estudantes para exibir -->
+    @if (Model.Any())
+    {
+        <!-- Tabela para exibir os detalhes dos estudantes -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th>Role</th>
+                    <th style="text-align: center;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop para cada estudante na lista -->
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.Idpeople)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @String.Format("{0:yyyy/MM/dd}", item.BirthDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RolesNavigation.Label)
+                        </td>
+                        <td id="index-btn-group" style="text-align: center;">
+                            <a asp-action="Details" asp-route-id="@item.Idpeople" id="indexViewButton">
+                                <i class="fa fa-address-card" style="color: #ffffff;"></i>
+                            </a> |
+                            <a asp-action="Edit" asp-route-id="@item.Idpeople" id="indexEditButton">
+                                <i class="fa fa-edit" style="color: #ffffff;"></i>
+                            </a> |
+                            <a asp-action="Delete" asp-route-id="@item.Idpeople" id="indexDeleteButton">
+                                <i class="fa fa-trash" style="color: #ffffff;"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Paginação -->
+        <div id="btn-group">
+            <!-- Botão "Previous" para a página anterior -->
+            @if (ViewBag.CurrentPage > 1)
+            {
+                <a href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1, searchString = ViewBag.CurrentFilter })" class="button" id="previous">Previous</a>
+            }
+            else
+            {
+                <a class="button disabled" id="previous">Previous</a>
+            }
+
+            <!-- Botões para a página -->
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <a href="@Url.Action("Index", new { page = i, searchString = ViewBag.CurrentFilter })" class="page-button @(ViewBag.CurrentPage == i ? "active-page" : "")">@i</a>
+            }
+
+            <!-- Botão "Next" para a próxima página -->
+            @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+            {
+                <a href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1, searchString = ViewBag.CurrentFilter })" class="button" id="next">Next</a>
+            }
+            else
+            {
+                <a class="button disabled" id="next">Next</a>
+            }
+        </div>
+    }
+    else
+    {
+        <!-- Mensagem de nenhum resultado encontrado -->
+        <div class="message">
+            No results were found.
+        </div>
+    }
+</body>
+</html>
