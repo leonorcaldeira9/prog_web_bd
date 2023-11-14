@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bR6AejJbLsjgT+Webyzs2yZtKv3eQk7pqEu/audCqKxABoCWdM6soNoQNg6pSyX+QjcZukv1s+c76CNPqIXiPw==",
+  "dgSpecHash": "jH9sQ1lzu29FvGacR0fDG8WyzHt6tCjfEdptK8Mj498ITCZpBxlU0Oedziq7ydFzgyJxz2mbZ12h9qAx7Hb82w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Leonor Caldeira\\OneDrive - Instituto Politecnico de Portalegre\\CTESP 2ºano\\1º Semestre\\Programação para a Web\\SchoolApp\\SchoolApp\\SchoolApp.csproj",
+  "projectFilePath": "C:\\Users\\Leonor Caldeira\\OneDrive\\Ambiente de Trabalho\\ProgWebProject\\SchoolApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Leonor Caldeira\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Leonor Caldeira\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

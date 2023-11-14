@@ -11433,11 +11433,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Leonor Caldeira\\OneDrive - Instituto Politecnico de Portalegre\\CTESP 2ºano\\1º Semestre\\Programação para a Web\\SchoolApp\\SchoolApp\\SchoolApp.csproj",
+      "projectUniqueName": "C:\\Users\\Leonor Caldeira\\OneDrive\\Ambiente de Trabalho\\ProgWebProject\\SchoolApp.csproj",
       "projectName": "SchoolApp",
-      "projectPath": "C:\\Users\\Leonor Caldeira\\OneDrive - Instituto Politecnico de Portalegre\\CTESP 2ºano\\1º Semestre\\Programação para a Web\\SchoolApp\\SchoolApp\\SchoolApp.csproj",
+      "projectPath": "C:\\Users\\Leonor Caldeira\\OneDrive\\Ambiente de Trabalho\\ProgWebProject\\SchoolApp.csproj",
       "packagesPath": "C:\\Users\\Leonor Caldeira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Leonor Caldeira\\OneDrive - Instituto Politecnico de Portalegre\\CTESP 2ºano\\1º Semestre\\Programação para a Web\\SchoolApp\\SchoolApp\\obj\\",
+      "outputPath": "C:\\Users\\Leonor Caldeira\\OneDrive\\Ambiente de Trabalho\\ProgWebProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
