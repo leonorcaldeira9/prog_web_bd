@@ -37,7 +37,7 @@ pipeline {
                         ])
                     ])
                 }
-                echo 'Testing.. $BOOLEAN'
+                echo 'Testing..' + params.BOOLEAN
             }
         }
         stage('Deploy') {
