@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-		sh 'ls'
+		sh 'dotnet run --urls http://localhost:5000'
             }
         }
     }
