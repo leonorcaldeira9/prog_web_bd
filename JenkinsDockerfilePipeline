@@ -20,7 +20,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-		sh 'dotnet run --urls http://localhost:5000'
+		sh 'dotnet nuget list source'
             }
         }
     }
