@@ -56,4 +56,4 @@ RUN adduser \
     appuser
 USER appuser
 
-ENTRYPOINT ["dotnet", "SchoolApp.dll"]
+# ENTRYPOINT ["dotnet", "SchoolApp.dll"]
