@@ -15,12 +15,12 @@ pipeline {
         docker { image 'mcr.microsoft.com/dotnet/sdk:6.0-alpine' }
     }
     environment {
-    	DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
-    }
+   	HOME = '/tmp'
+    } 
     stages {
         stage('Test') {
             steps {
-		sh 'dotnet nuget list source'
+		sh 'dotnet run --urls http://localhost:5000'
             }
         }
     }
