@@ -16,6 +16,7 @@ pipeline {
     }
     environment {
     	DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
+	XDG_CLI_HOME = "/tmp"
     }
     stages {
         stage('Test') {
