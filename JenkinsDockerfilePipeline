@@ -10,10 +10,25 @@
     //}
 //}
 
+//pipeline {
+    //agent {
+        //docker { image 'mcr.microsoft.com/dotnet/sdk:6.0-alpine' }
+    //}
+    //environment {
+    	//DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
+	//XDG_DATA_HOME = "/tmp"
+    //}
+    //stages {
+        //stage('Test') {
+            //steps {
+		//sh 'dotnet run --urls http://localhost:5000'
+            //}
+        //}
+    //}
+//}
+
 pipeline {
-    agent {
-        docker { image 'mcr.microsoft.com/dotnet/sdk:6.0-alpine' }
-    }
+    agent any
     environment {
     	DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
 	XDG_DATA_HOME = "/tmp"
@@ -21,7 +36,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-		sh 'dotnet run --urls http://localhost:5000'
+                sh 'docker compose up --build'
             }
         }
     }
